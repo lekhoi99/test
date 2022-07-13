@@ -13,8 +13,18 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v3
+      - name: Set up python
+        id: setup-python
+        uses: actions/setup-python@v3
+        with:
+          python-version: 3.9
+      - name: Install Poetry
+        uses: snok/install-poetry@v3
+        with:
+          virtualenvs-create: true
+          virtualenvs-in-project: true
+          installer-parallel: true
       - name: Set up Python Environment
         run: poetry install
-
       - name: Run Tests
         run: poetry run flake8 . --max-line-length 120
