@@ -27,4 +27,4 @@ jobs:
       - name: Set up Python Environment
         run: poetry install
       - name: Run Tests
-        run: poetry run flake8 . --max-line-length 120
+        run: poetry run flake8 .
